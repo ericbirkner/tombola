@@ -131,12 +131,29 @@ function goRegistro() {
 	//var sql = 'INSERT INTO premios (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'")';
 	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","ericbirkner@facebook.com","12121212","si");';
 	console.log(sql);
+		
+	window.location= 'juego.html';
 	
 	tx.executeSql(sql);
 	}, errorCB);
 	
 	
 }
+
+//funcion random array
+(function($) {
+    $.rand = function(arg) {
+        if ($.isArray(arg)) {
+            return arg[$.rand(arg.length)];
+        } else if (typeof arg === "number") {
+            return Math.floor(Math.random() * arg);
+        } else {
+            return 4;  // chosen by fair dice roll
+        }
+    };
+})(jQuery);
+
+
 
 //validacion de formulario
 

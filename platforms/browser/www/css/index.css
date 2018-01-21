@@ -26,6 +26,7 @@ body{
 	height: 100%;
 	background: #000;
 	color: #fff;
+	overflow-x: hidden;
 }
 
 body.setup{
@@ -50,13 +51,23 @@ body.setup{
   z-index: 1;	
 }
 
-#intro .logo, #formulario .logo{
+#intro .logo{
 	width: 40%;
 	height: auto;
 	position: absolute;
 	z-index: 2;
 	top: 30%;
 	right: 10%;
+	animation-delay:1s;
+}
+
+#formulario .logo{
+	width: 35%;
+	height: auto;
+	position: absolute;
+	z-index: 2;
+	top: 30%;
+	right: 6%;
 	animation-delay:1s;
 }
 
@@ -79,7 +90,6 @@ body.setup{
 	top: 5%;
 	position: absolute;
 	animation-delay:1s;
-	border: 1px solid red;
 }
 
 #formulario .campos .input{
@@ -176,6 +186,75 @@ body.setup{
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+
+#juego{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(../img/formulario.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: 1;		
+}
+
+#juego .logo{
+	width: 20%;
+	height: auto;
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: 5%;
+	animation-delay:1s;
+}
+
+#juego .contenedor-rueda{
+    width:526px;
+	
+    display:inline-block;
+    vertical-align: bottom;
+    position:relative;
+	float: right;
+    margin: 10% 5% 0 0;
+}
+
+#juego .contenedor-rueda .indicador{
+    position:absolute;
+	top:-30px;
+    left:50%;
+	margin-left:-24px;
+	display:block;
+	z-index:10;
+	width:53px;
+	height:86px;
+}
+
+#juego .contenedor-rueda .rueda{
+    margin-top:2px;
+	display:block;
+}
+
+#juego .tu_premio{
+	width: 30%;
+	left: 5%;
+	top: 10%;
+	height: 25%;
+	position: absolute;
+	text-align: center;
+	display: none;
+}
+
+#juego .tu_premio .box_premio{
+	background: #fff;
+	text-transform: uppercase;
+	border-radius: 50%;
+	padding: 30px 20px;
+	color: #001a3b;
+	font-size: 2em;
+	font-family: 'Conv_Futura Bold font',Sans-Serif;
 }
 
 input[type='text'] {
