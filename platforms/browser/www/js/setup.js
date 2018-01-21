@@ -9,11 +9,6 @@ var currentRow;
 //
 function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, name,number)');
-	
-}
-
-function creaTablaRegistros(tx) {
-	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT, firstName,lastName,rut,email,birthday, recibe_info)');
 }
 
@@ -39,8 +34,7 @@ function querySuccess(tx, results) {
 				+ results.rows.item(i).name +'</td><td>' + results.rows.item(i).number +'</td></tr>';
 	}
 	tblText +="</table>";
-	//document.getElementById("").innerHTML =tblText;
-	$('#tblDiv').html(tblText);
+	document.getElementById("tblDiv").innerHTML =tblText;
 }
 
 //Delete query
@@ -66,7 +60,6 @@ function successCB() {
 function onDeviceReady() {
 	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(populateDB, errorCB, successCB);
-	db.transaction(creaTablaRegistros, errorCB);
 }
 
 //Insert query
@@ -116,28 +109,6 @@ function goEdit() {
 }
 
 
-
-function goRegistro() {
-	
-	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
-	db.transaction(function(tx){
-		var firstName 	= $( "#firstName" ).val();
-	var lastName 	= $( "#lastName" ).val();
-	var recibe_info	= $( "#recibe_info" ).val();
-	var lastName 	= $( "#lastName" ).val();
-	var email 		= $( "#email" ).val();
-	var birthday 	= $( "#birthday" ).val();
-	var rut 		= $( "#rut" ).val();
-	//var sql = 'INSERT INTO premios (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'")';
-	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","ericbirkner@facebook.com","12121212","si");';
-	console.log(sql);
-	
-	tx.executeSql(sql);
-	}, errorCB);
-	
-	
-}
-
 //validacion de formulario
 
 $(document).ready(function() {
@@ -149,12 +120,17 @@ $(document).ready(function() {
 		// retorna true si es válido
 		if($.validateRut(rut)) {
 			
-			goRegistro();
+			var firstName 	= $( "#firstName" ).val();
+            var lastName 	= $( "#lastName" ).val();
+            var hash 		= $( "#recibe_info" ).val();
+            var lastName 	= $( "#lastName" ).val();
+            var email 		= $( "#email" ).val();
+            var birthday 	= $( "#birthday" ).val();
+            var rut 		= $( "#rut" ).val();
 			
 		}else{
 			alert('El rut no es válido');
 		}
-		
 		
   	});
 });
