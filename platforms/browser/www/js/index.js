@@ -1,7 +1,10 @@
 //var db_name="../../../../mnt/sdcard/Download/handycam";
 var db_name="tombola";
 // Wait for Cordova to load
-        //
+//toekn para horus
+
+var token = "bc276116-da84-079f-01ca-dbaf91bf77d2";
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var currentRow;
@@ -15,6 +18,13 @@ function populateDB(tx) {
 function creaTablaRegistros(tx) {
 	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT, firstName,lastName,rut,email,birthday, recibe_info)');
+	
+	//inserto los premios
+	/*
+	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (1,"jockey",100);');
+	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (2,"parlantes",80);');
+	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (3,"audifonos",20);');			  
+	*/
 }
 
 // Query the database
@@ -51,7 +61,7 @@ function deleteRow(tx) {
 // Transaction error callback
 //
 function errorCB(err) {
-	console.log("Error processing SQL: "+err.code);
+	//console.log("Error processing SQL: "+err.code);
 }
 
 // Transaction success callback
