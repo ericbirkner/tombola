@@ -24,10 +24,11 @@
 </head>
 
 <body class="setup">
+   	<a href="index.html" class="volver">< Inicio</a>
+   
     <h1>Premios</h1>
     <!--popup edición-->
     <div id="qrpopup" > 
-            <hr/>
             <input type="text" id="editNameBox"><br>
             <input type="text" id="editNumberBox"><br>
             <button onclick="goDelete()">eliminar</button>
@@ -35,7 +36,7 @@
             <button onclick="document.getElementById('qrpopup').style.display='none';">cerrar</button>
     </div>
 
-    <div>
+    <div class="box">
 		<form id="form">
 		<table border="0" style="border: 0;" >
 			<tr>
@@ -61,7 +62,7 @@
     <div id="tblDiv"></div>
 
     <script src="cordova.js"></script>
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/setup.js"></script>
   </body>

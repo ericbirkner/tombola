@@ -1,4 +1,74 @@
 // JavaScript Document
+var jockey =0;
+var parlante = 0;
+var audifono = 0;
+
+
+
+
+var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+
+db.transaction(function(tx){
+	var sql = "SELECT * FROM premios where name like ('%jockey%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length>0){
+			console.log('es mas de 0 -'+results.rows.item(0).number);
+			hola(results.rows.item(0).number);
+		}
+
+	});
+
+});
+
+db.transaction(function(tx){
+	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length>0){
+			console.log('parlante :'+results.rows.item(0).number);
+			hola1(results.rows.item(0).number);
+		}
+
+	});
+
+});
+
+db.transaction(function(tx){
+	var sql = "SELECT * FROM premios where name like ('%audifono%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length>0){
+			console.log('audifono :'+results.rows.item(0).number);
+			hola2(results.rows.item(0).number);
+		}
+
+	});
+
+});
+		
+function hola(number){
+	jockey = number;
+	console.log(jockey);
+}
+
+function hola1(number){
+	parlante = number;
+	console.log(parlante);
+}
+
+function hola2(number){
+	audifono = number;
+	console.log(audifono);
+}
+
+
 $(function(){
 	
 		window.WHEELOFFORTUNE = {
@@ -51,10 +121,36 @@ $(function(){
                 //var deg = 1500 + Math.round(Math.random() * 1500),
                 //duration = 6000; //optimal 6 secs
 				
-				//var premios = {'jockey':45,'sigue':90,'parlante':135,'audifonos':180,'jockey':225,'sigue':270,'parlante':315,'audifonos':360};
+				//var premios = Array(45,90,135,180,225,270,315,360);
+				//var nombre_premios = Array('jockey','sigue disfrutando','parlante','audifonos','jockey','sigue disfrutando','parlante','audifonos');
+				var premios = Array(90,90,90,90,90,90,90,90);
+				var nombre_premios = Array('sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando');
 				
-				var premios = Array(45,90,135,180,225,270,315,360);
-				var nombre_premios = Array('jockey','sigue disfrutando','parlante','audifonos','jockey','sigue disfrutando','parlante','audifonos');
+				if(jockey>0){
+					console.log('hay jockey');
+					premios[0]=45;
+					premios[4]=225;
+					nombre_premios[0]="jockey";
+					nombre_premios[4]="jockey";
+				}
+				
+				if(parlante>0){
+					console.log('hay parlante');
+					premios[2]=135;
+					premios[6]=315;
+					nombre_premios[2]="parlante";
+					nombre_premios[6]="parlante";
+				}
+				
+				if(audifono>0){
+					console.log('hay audifono');
+					premios[3]=180;
+					premios[7]=360;
+					nombre_premios[3]="audífonos";
+					nombre_premios[7]="audífonos";
+				}
+				
+				console.log(nombre_premios);
 				
 				var random = Math.floor(Math.random()*premios.length);
 				var premiado = premios[random]

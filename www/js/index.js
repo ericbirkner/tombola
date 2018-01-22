@@ -8,7 +8,7 @@ var currentRow;
 // Populate the database
 //
 function populateDB(tx) {
-	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, name,number)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, varchar(200) name, INTEGER number)');
 	
 }
 
@@ -30,13 +30,13 @@ function searchQueryDB(tx) {
 // Query the success callback
 //
 function querySuccess(tx, results) {
-	var tblText='<table id="t01"><tr><th>ID</th> <th>Premio</th> <th>cantidad</th></tr>';
+	var tblText='<table id="t01" border="1"><tr><th>ID</th> <th>Premio</th> <th>cantidad</th><th>editar</th></tr>';
 	var len = results.rows.length;
 	for (var i = 0; i < len; i++) {
 		var tmpArgs=results.rows.item(i).id + ",'" + results.rows.item(i).name
 				+ "','" + results.rows.item(i).number+"'";
 		tblText +='<tr onclick="goPopup('+ tmpArgs + ');"><td>' + results.rows.item(i).id +'</td><td>'
-				+ results.rows.item(i).name +'</td><td>' + results.rows.item(i).number +'</td></tr>';
+				+ results.rows.item(i).name +'</td><td>' + results.rows.item(i).number +'</td><td align="center"><img src="img/edit.png"></td></tr>';
 	}
 	tblText +="</table>";
 	//document.getElementById("").innerHTML =tblText;
@@ -51,7 +51,7 @@ function deleteRow(tx) {
 // Transaction error callback
 //
 function errorCB(err) {
-	alert("Error processing SQL: "+err.code);
+	console.log("Error processing SQL: "+err.code);
 }
 
 // Transaction success callback
@@ -128,8 +128,8 @@ function goRegistro() {
 	var email 		= $( "#email" ).val();
 	var birthday 	= $( "#birthday" ).val();
 	var rut 		= $( "#rut" ).val();
-	//var sql = 'INSERT INTO premios (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'")';
-	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","ericbirkner@facebook.com","12121212","si");';
+	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'");';
+	//var sql = 'INSERT INTO registro (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","email@dalso.com","1212122222","si");';
 	console.log(sql);
 		
 	window.location= 'juego.html';
