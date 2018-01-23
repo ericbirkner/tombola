@@ -26,47 +26,18 @@
 <body class="setup">
    	<a href="index.html" class="volver">< Inicio</a>
    
-    <h1>Premios</h1>
+    <h1>Sincronizar Datos</h1>
     <!--popup edición-->
-    <div id="qrpopup" > 
-            <input type="text" id="editNameBox"><br>
-            <input type="text" id="editNumberBox"><br>
-            <button onclick="goDelete()">eliminar</button>
-            <button onclick="goEdit()">guardar</button>
-            <button onclick="document.getElementById('qrpopup').style.display='none';">cerrar</button>
-    </div>
+   	<div class="sync">
+		<a class="btn_subir">Subir Datos</a>
+		
+		<div class="loading"><img src="img/ajax-loader.gif" width="31" height="31" alt=""/></div> 
+	</div>
 
-    <div class="box">
-		<form id="form">
-		<table border="0" style="border: 0;" >
-			<tr>
-				<td>Premio</td>
-				<td><input type="text" id="txtName" placeholder="Nombre"></td>
-			</tr>
-			<tr>
-				<td>Cantidad</td>
-				<td><input type="text" id="txtNumber" placeholder="Cantidad"></td>
-			</tr>
-		</table>		
-        
-        <br/>
-        
-		</form>	
-    </div>
-    <div style="text-align: center">
-        <button onclick="goInsert()">Agregar</button>
-        <!--
-		<button onclick="goSearch()">Buscar</button>
-        <button onclick="successCB()">Búscar</button>
-		-->
-    </div>
-	<hr/>
-    <div id="tblDiv"></div>
-
-    <script src="cordova.js"></script>
+<script src="cordova.js"></script>
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/setup.js"></script>
+    <script src="js/sync.js"></script>
   </body>
 
 </html>

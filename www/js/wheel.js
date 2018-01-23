@@ -69,6 +69,17 @@ function hola2(number){
 }
 
 
+function descontar(premio) {
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	db.transaction(function(tx) {
+		var sql = 'UPDATE premios SET number= number -1 WHERE name like "%'+premio+'%"; ';
+		console.log(sql);	
+		tx.executeSql(sql);
+	}, errorCB);
+	
+}
+
+
 $(function(){
 	
 		window.WHEELOFFORTUNE = {
@@ -208,6 +219,14 @@ $(function(){
 					console.log('win = ' + win);
 					console.log('premio = ' + premio);
 					
+					if(premio!='sigue disfrutando'){
+						if(premio == 'audífonos'){
+							descontar('audifonos');
+						}else{
+							descontar(premio);	
+						}						
+					}
+										
 					//alert(premio);
 					$('#juego .tu_premio .box_premio').text(premio);
 					$('#juego .tu_premio').css({'display':'block'})

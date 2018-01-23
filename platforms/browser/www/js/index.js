@@ -1,7 +1,10 @@
 //var db_name="../../../../mnt/sdcard/Download/handycam";
 var db_name="tombola";
 // Wait for Cordova to load
-        //
+//toekn para horus
+
+var token = "bc276116-da84-079f-01ca-dbaf91bf77d2";
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var currentRow;
@@ -15,6 +18,13 @@ function populateDB(tx) {
 function creaTablaRegistros(tx) {
 	
 	tx.executeSql('CREATE TABLE IF NOT EXISTS registros (id INTEGER PRIMARY KEY AUTOINCREMENT, firstName,lastName,rut,email,birthday, recibe_info)');
+	
+	//inserto los premios
+	/*
+	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (1,"jockey",100);');
+	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (2,"parlantes",80);');
+	tx.executeSql('INSERT INTO premios (id,name,number) VALUES (3,"audifonos",20);');			  
+	*/
 }
 
 // Query the database
@@ -51,7 +61,7 @@ function deleteRow(tx) {
 // Transaction error callback
 //
 function errorCB(err) {
-	console.log("Error processing SQL: "+err.code);
+	//console.log("Error processing SQL: "+err.code);
 }
 
 // Transaction success callback
@@ -176,96 +186,3 @@ $(document).ready(function() {
   	});
 });
 
-
-/*
-$('#signupForm')
-    .formValidation({
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            rut: {
-                validators: {
-                    id: {
-                        country: 'CL',
-                        message: 'Rut Invalido'
-                    }
-                }
-            }
-        }
-    })
-    .on('err.field.fv', function(e, data) {
-            data.element
-                .data('fv.messages')
-                .find('.help-block[data-fv-for="' + data.field + '"]').hide();
-    })
-    .on('success.form.fv', function(e) {
-	    e.preventDefault();
-	    $("#confirmsignup").html('<i class="fa fa fa-spinner fa-spin"></i>');
-	    
-	    var obj = {
-            firstName 		: $( "#firstName" ).val(),
-            lastName 		: $( "#lastName" ).val(),
-            hash 			: $( "#hash" ).val(),
-            lastName 		: $( "#lastName" ).val(),
-            email 			: $( "#email" ).val(),
-            birthday 		: $( "#birthday" ).val(),
-            gender 			: $( "#gender" ).val(),
-            identifyNumber 	: $( "#rut" ).val()
-        }
-        	
-        console.log(obj);
-        $.ajax({
-            type: "POST",
-            url: "https://api.pernod-ricard.io/pr-latam/v1/consumers/",
-            data: JSON.stringify(obj),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            headers: {
-       			'X-TOUCHPOINT-TOKEN': $('#touchpointToken').val(),
-	   			'api_key': '2cefyzjgdjtmnexgwmr84e7a'
-   			},
-            success: function(data){
-                //alert('Success');
-				$("#confirmsignup").html('Registrarse');
-				$('#signupForm')[0].reset();
-				
-					swal("Gracias por registrarte, ya puedes ingresar a Ballantine's Records");
-          // tag Cadreon 
-          totaltag(' http://ballantinesrecords.cl/exito'); //url virtual proporcionada por Cadreon		
-					 $('#modalLogin .nav-tabs li:eq(0) a').tab('show');
-      },
-            failure: function(errMsg) {
-                console.log(errMsg);	
-	            if(errMsg.responseText=="{\"message\":\"hash invalid, the minimum length is 6\"}"){
-		            mensaje = "La contraseÃ±a debe tener al menos 6 caracteres.";
-	            }else if("{\"message\":\"The consumer already exists in Touchpoint\",\"code\":26}"){
-		            mensaje = "Este correo ya se encuentra registrado.";
-		       	}else{ 
-		            mensaje = "Ha ocurrido un error, por favor vuelve a intentarlo";
-	            }
-					swal(mensaje);
-				$("#confirmsignup").html('Registrarse');
-            },
-            error: function(errMsg) { 		
-	            if(errMsg.responseText=="{\"message\":\"hash invalid, the minimum length is 6\"}"){
-		            mensaje = "La contraseÃ±a debe tener al menos 6 caracteres.";
-	            }else if("{\"message\":\"The consumer already exists in Touchpoint\",\"code\":26}"){
-		            mensaje = "Este correo ya se encuentra registrado.";
-	            }else{
-		            mensaje = "Ha ocurrido un error, por favor vuelve a intentarlo";
-	            }
-					swal(mensaje);
-	            console.log(JSON.stringify(errMsg.responseText));
-				$("#confirmsignup").html('Registrarse');
-            }
-		}); 
-	    
-	    
-	    
-    })
-    .find('[name="rut"]').mask('99999999-A');
-*/
