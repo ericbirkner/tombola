@@ -12,9 +12,10 @@ function lista_datos(tx, results) {
 	var len = results.rows.length;
 	console.log(results.rows);
 	
+	var exito=0;
+	var i = 0;
 	
-	for (var i = 0; i < len; i++) {
-		//results.rows.item(i).id + ",'" + results.rows.item(i).name
+	for (i; i < len; i++) {
 		
 		var obj = {
             firstName 		: results.rows.item(i).firstName,
@@ -41,13 +42,13 @@ function lista_datos(tx, results) {
             success: function(data){
                 //alert('Success');
 				console.log("Gracias por registrarte, ya puedes ingresar a Ballantine's Records");
-				  
+				exito++;  
 			},
 			failure: function(errMsg) {
 				console.log(errMsg);	
 				
 				if(errMsg.responseText=="{\"message\":\"hash invalid, the minimum length is 6\"}"){
-					mensaje = "La contraseÃ±a debe tener al menos 6 caracteres.";
+					mensaje = "La contraseña debe tener al menos 6 caracteres.";
 				}else if("{\"message\":\"The consumer already exists in Touchpoint\",\"code\":26}"){
 					mensaje = "Este correo ya se encuentra registrado.";
 				}else{ 
@@ -69,10 +70,14 @@ function lista_datos(tx, results) {
 				
             }
 		}); 
-	    
-		
+		console.log(i);
+	   
 	}
-	alert('fin');
+	
+	//fin sync
+	$('.sync .loading').hide();
+	$('.sync').html('<p>Se sincronizaron <b>'+exito+'</b> registros al servidor</p>');
+	
 }
 
 

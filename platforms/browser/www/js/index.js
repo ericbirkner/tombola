@@ -3,7 +3,8 @@ var db_name="tombola";
 // Wait for Cordova to load
 //toekn para horus
 
-var token = "bc276116-da84-079f-01ca-dbaf91bf77d2";
+//var token = "bc276116-da84-079f-01ca-dbaf91bf77d2";
+var token = "e62b90a3-7ecf-b747-f6eb-f11079fcbacd";
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
