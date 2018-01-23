@@ -34,7 +34,36 @@
    				<input type="email" name="email" placeholder="E-MAIL" class="input" id="email" required>
    			</p>
    			<p>
-   				<input type="text" name="fnac" placeholder="FECHA DE NACIMIENTO" class="input" id="birthday" required>
+   				<!--<input type="text" name="fnac" placeholder="FECHA DE NACIMIENTO" class="input" id="birthday" required>-->
+   				<select name="dia" id="dia" class="fecha" required>
+   					<option value="0">día</option>
+   					<script>
+						for(i=1;i<=31;i++){
+							document.write('<option value="'+i+'">'+i+'</option>');
+						}
+					</script>
+   				</select>
+   				
+   				<select name="mes" id="mes" class="fecha" required>
+   					<option value="0">mes</option>
+   					<script>
+						for(i=1;i<=12;i++){
+							document.write('<option value="'+i+'">'+i+'</option>');
+						}
+					</script>
+   				</select>
+   				
+   				<select name="ano" id="ano" class="fecha" required>
+   					<option value="0">año</option>
+   					<script>
+						var ano = new Date().getFullYear();
+						ano = parseInt(ano);
+						for(i=ano;i>=1940;i--){
+							document.write('<option value="'+i+'">'+i+'</option>');
+						}
+					</script>
+   				</select>
+   				
    				<div class="desc_fecha">Ej:Día/Mes/Año</div>
    				<input id="touchpointToken" name="touchpointToken" type="hidden" value="d4f7b6ab-9915-4030-c7b1-2883c26e2cd3">
    			</p>

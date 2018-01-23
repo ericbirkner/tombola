@@ -136,6 +136,19 @@ a.sincronizar{
 	text-transform: uppercase;
 }
 
+#formulario .campos select.fecha{
+	color: #fff;
+	background: #001a3b;
+	font-size: 1.4em;
+	display:inline-block;
+	width: 32%;
+	padding: 15px 5%;
+	border: none;
+	border-radius: 10px;
+	text-transform: uppercase;
+	-webkit-appearance:none;
+}
+
 #formulario .campos .desc_fecha{
 	text-align: right;
 	font-size: 1em;

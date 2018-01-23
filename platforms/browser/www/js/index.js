@@ -11,7 +11,7 @@ var currentRow;
 // Populate the database
 //
 function populateDB(tx) {
-	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, varchar(200) name, INTEGER number)');
+	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, name, number)');
 	
 }
 
@@ -136,7 +136,8 @@ function goRegistro() {
 	var recibe_info	= $( "#recibe_info" ).val();
 	var lastName 	= $( "#lastName" ).val();
 	var email 		= $( "#email" ).val();
-	var birthday 	= $( "#birthday" ).val();
+	//var birthday 	= $( "#birthday" ).val();
+	var birthday 	= $("#ano").val()+'-'+$("#mes").val()+'-'+$("#dia").val();	
 	var rut 		= $( "#rut" ).val();
 	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'");';
 	//var sql = 'INSERT INTO registro (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","email@dalso.com","1212122222","si");';

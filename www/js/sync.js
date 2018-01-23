@@ -1,6 +1,7 @@
 function abre_base() {
+	alert('No apague el equipo mientras sincronizamos los datos');
 	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
-	db.transaction(queryDB, errorCB);
+	db.transaction(consulta_registros, errorCB);
 }
 
 function consulta_registros(tx) {
@@ -10,14 +11,68 @@ function consulta_registros(tx) {
 function lista_datos(tx, results) {
 	var len = results.rows.length;
 	console.log(results.rows);
-	/*
+	
+	
 	for (var i = 0; i < len; i++) {
-		var tmpArgs=results.rows.item(i).id + ",'" + results.rows.item(i).name
-				+ "','" + results.rows.item(i).number+"'";
-		tblText +='<tr onclick="goPopup('+ tmpArgs + ');"><td>' + results.rows.item(i).id +'</td><td>'
-				+ results.rows.item(i).name +'</td><td>' + results.rows.item(i).number +'</td><td align="center"><img src="img/edit.png"></td></tr>';
+		//results.rows.item(i).id + ",'" + results.rows.item(i).name
+		
+		var obj = {
+            firstName 		: results.rows.item(i).firstName,
+            lastName 		: results.rows.item(i).lastName,
+            hash 			: '123456',
+            email 			: results.rows.item(i).email,
+            birthday 		: results.rows.item(i).birthday,
+            identifyNumber 	: results.rows.item(i).rut,
+			countryCode		: "cl",
+        }
+        	
+        console.log(obj);
+        $.ajax({
+            type: "POST",
+            url: "https://api.pernod-ricard.io/pr-latam/v1/consumers/",
+            //url : 'http://horus.dev.konabackend.com/',
+			data: JSON.stringify(obj),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            headers: {
+       			'X-TOUCHPOINT-TOKEN': token,
+	   			'api_key': 'q9qsv2ebnkrxky46p8wck33f'
+   			},
+            success: function(data){
+                //alert('Success');
+				console.log("Gracias por registrarte, ya puedes ingresar a Ballantine's Records");
+				  
+			},
+			failure: function(errMsg) {
+				console.log(errMsg);	
+				
+				if(errMsg.responseText=="{\"message\":\"hash invalid, the minimum length is 6\"}"){
+					mensaje = "La contraseÃ±a debe tener al menos 6 caracteres.";
+				}else if("{\"message\":\"The consumer already exists in Touchpoint\",\"code\":26}"){
+					mensaje = "Este correo ya se encuentra registrado.";
+				}else{ 
+					mensaje = "Ha ocurrido un error, por favor vuelve a intentarlo";
+				}
+					console.log(mensaje);
+				
+			},
+            error: function(errMsg) { 		
+	            if(errMsg.responseText=="{\"message\":\"hash invalid, the minimum length is 6\"}"){
+		            mensaje = "La contraseÃ±a debe tener al menos 6 caracteres.";
+	            }else if("{\"message\":\"The consumer already exists in Touchpoint\",\"code\":26}"){
+		            mensaje = "Este correo ya se encuentra registrado.";
+	            }else{
+		            mensaje = "Ha ocurrido un error, por favor vuelve a intentarlo";
+	            }
+				console.log(mensaje);
+	            console.log(JSON.stringify(errMsg.responseText));
+				
+            }
+		}); 
+	    
+		
 	}
-	*/
+	alert('fin');
 }
 
 
