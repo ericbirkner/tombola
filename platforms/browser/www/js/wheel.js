@@ -93,7 +93,7 @@ $(function(){
                 this.cache.wheel = $('.rueda');
                 this.cache.wheelMarker = $('.indicador');
                 //this.cache.wheelSpinBtn = $('.rueda, .boton-ruleta'); //im using the wheel as the spin button but simply change this to a button if you want.
-				this.cache.wheelSpinBtn = $('#juego .logo'); //im using the wheel as the spin button but simply change this to a button if you want.
+				this.cache.wheelSpinBtn = $('#juego .rueda'); //im using the wheel as the spin button but simply change this to a button if you want.
 
                 //mapping is backwards as wheel spins clockwise //1=win
                 //this.cache.wheelMapping = [400, 120, 80, 750, 150, 300, 60, 175, 500, 125, 75, 1000, 120, 200, 90, 600, 100, 250].reverse();

@@ -6,9 +6,9 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>Tombola Mágica</name>
+    <name>Tombola Virtual</name>
     <description>
-        Gana Premios al Instante
+        Ballantines
     </description>
     <author email="ericbirkner@gmail.com" href="http://phonegap.com">
         Birkner Media
