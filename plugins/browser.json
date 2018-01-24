@@ -66,6 +66,9 @@
         },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "com.phonegap.tombola"
+        },
+        "cordova-sqlite-plugin": {
+            "PACKAGE_NAME": "com.phonegap.tombola"
         }
     },
     "dependent_plugins": {

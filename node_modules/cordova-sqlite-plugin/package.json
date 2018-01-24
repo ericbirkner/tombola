@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-sqlite-plugin",
+        "scope": null,
+        "escapedName": "cordova-sqlite-plugin",
+        "name": "cordova-sqlite-plugin",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Applications/XAMPP/xamppfiles/htdocs/tombola/node_modules"
+    ]
+  ],
+  "_from": "cordova-sqlite-plugin@latest",
+  "_id": "cordova-sqlite-plugin@3.1.1",
+  "_inCache": true,
+  "_location": "/cordova-sqlite-plugin",
+  "_nodeVersion": "6.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-sqlite-plugin-3.1.1.tgz_1476714844125_0.24681206815876067"
+  },
+  "_npmUser": {
+    "name": "mvila",
+    "email": "mvila@3base.com"
+  },
+  "_npmVersion": "3.10.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-sqlite-plugin",
+    "scope": null,
+    "escapedName": "cordova-sqlite-plugin",
+    "name": "cordova-sqlite-plugin",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-sqlite-plugin/-/cordova-sqlite-plugin-3.1.1.tgz",
+  "_shasum": "d190e755d2b1862b7e9cfd132434a62c2f90412d",
+  "_shrinkwrap": null,
+  "_spec": "cordova-sqlite-plugin",
+  "_where": "/Applications/XAMPP/xamppfiles/htdocs/tombola/node_modules",
+  "author": {
+    "name": "various"
+  },
+  "bugs": {
+    "url": "https://github.com/object-layer/cordova-sqlite-plugin/issues"
+  },
+  "cordova": {
+    "id": "cordova-sqlite-plugin",
+    "platforms": [
+      "android",
+      "ios",
+      "windows",
+      "amazon-fireos"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova SQLite plugin with a straightforward low-level API",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "d190e755d2b1862b7e9cfd132434a62c2f90412d",
+    "tarball": "https://registry.npmjs.org/cordova-sqlite-plugin/-/cordova-sqlite-plugin-3.1.1.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=6.0.0"
+    }
+  ],
+  "gitHead": "b7f487d873ff233a240fd9313bf5b3e4aa10c413",
+  "homepage": "https://github.com/object-layer/cordova-sqlite-plugin#readme",
+  "keywords": [
+    "sqlite",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows",
+    "cordova-amazon-fireos"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "mvila",
+      "email": "mvila@3base.com"
+    }
+  ],
+  "name": "cordova-sqlite-plugin",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/object-layer/cordova-sqlite-plugin.git"
+  },
+  "scripts": {},
+  "version": "3.1.1"
+}

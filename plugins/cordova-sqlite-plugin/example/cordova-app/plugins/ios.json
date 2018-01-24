@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "org.objectlayer.example"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.objectlayer.example"
+        },
+        "cordova-sqlite-plugin": {
+            "PACKAGE_NAME": "org.objectlayer.example"
+        }
+    },
+    "dependent_plugins": {}
+}
