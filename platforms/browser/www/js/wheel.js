@@ -6,7 +6,7 @@ var audifono = 0;
 
 
 
-var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
+var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 
 db.transaction(function(tx){
 	var sql = "SELECT * FROM premios where name like ('%jockey%') limit 1";	
@@ -70,7 +70,7 @@ function hola2(number){
 
 
 function descontar(premio) {
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
+	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(function(tx) {
 		var sql = 'UPDATE premios SET number= number -1 WHERE name like "%'+premio+'%"; ';
 		console.log(sql);	
