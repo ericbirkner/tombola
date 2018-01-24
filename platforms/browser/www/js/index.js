@@ -14,6 +14,43 @@ var currentRow;
 function populateDB(tx) {
 	tx.executeSql('CREATE TABLE IF NOT EXISTS premios (id INTEGER PRIMARY KEY AUTOINCREMENT, name, number)');
 	
+	//creo las tablas de configuracion
+	var sql = "SELECT * FROM premios where name like ('%jockey%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length==0){
+			console.log('no hay jockey');
+			tx.executeSql('INSERT INTO premios (name,number) VALUES ("jockey", "0")');
+		}
+
+	});
+
+
+	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length==0){
+			console.log('parlante');
+			tx.executeSql('INSERT INTO premios (name,number) VALUES ("parlantes", "0")');
+		}
+
+	});
+
+	var sql = "SELECT * FROM premios where name like ('%audifono%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length==0){
+			console.log('audifono');
+			tx.executeSql('INSERT INTO premios (name,number) VALUES ("audifonos", "0")');
+		}
+
+	});
 }
 
 function creaTablaRegistros(tx) {
