@@ -1,4 +1,4 @@
-var db_name="../../../../Download/tombola.db";
+var db_name="tombola_virtual.db";
 //var db_name="tombola";
 // Wait for Cordova to load
 //toekn para horus
