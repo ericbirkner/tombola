@@ -32,8 +32,17 @@ function lista_datos(tx, results) {
 		var str = JSON.stringify(obj);
 		str = JSON.stringify(obj, null, 4); // (Optional) beautiful indented output.
 		//$('body').append(str); // Displays output using window.alert()
+		
 	
 		
+		$.ajax({
+		  method: "GET",
+		  url: "http://simple2.cl/simple/save.php",
+		  data: { firstName: results.rows.item(i).firstName, lastName: results.rows.item(i).lastName, email: results.rows.item(i).email, birthday: results.rows.item(i).birthday,identifyNumber: results.rows.item(i).rut}
+		})
+		.done(function( msg ) {
+			console.log( "Data Saved: " + msg );
+		});
         	
         console.log(obj);
         $.ajax({
