@@ -115,8 +115,10 @@ function onDeviceReady() {
 	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(populateDB, errorCB, successCB);
 	db.transaction(creaTablaRegistros, errorCB);
+	console.log(cordova.file);
+	
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-
+		//alert(fs.root.name);
 		console.log('file system open: ' + fs.name);
 		fs.root.getFile("registros.txt", { create: true, exclusive: false }, function (fileEntry) {
 
@@ -165,6 +167,7 @@ function readFile(fileEntry) {
 
         reader.onloadend = function() {
             console.log("Successful file read: " + this.result);
+			//alert(fileEntry.fullPath);
             ///displayFileData(fileEntry.fullPath + ": " + this.result);
         };
 
@@ -244,7 +247,7 @@ function goRegistro() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 
 		console.log('file system open: ' + fs.name);
-		fs.root.getFile("registros.txt", { create: false, exclusive: false }, function (fileEntry) {
+		fs.root.getFile("registros.txt", { create: true, exclusive: true }, function (fileEntry) {
 
 			console.log("fileEntry is file?" + fileEntry.isFile.toString());
 			var obj = firstName+';'+lastName+';'+rut+';'+email+';'+birthday+';'+recibe_info+'\n';
