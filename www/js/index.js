@@ -105,14 +105,14 @@ function errorCB(err) {
 // Transaction success callback
 //
 function successCB() {
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	db.transaction(queryDB, errorCB);
 }
 
  // Cordova is ready
 //
 function onDeviceReady() {
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	db.transaction(populateDB, errorCB, successCB);
 	db.transaction(creaTablaRegistros, errorCB);
 }
@@ -128,17 +128,17 @@ function insertDB(tx) {
 }
 
 function goInsert() {
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	db.transaction(insertDB, errorCB, successCB);
 }
 
 function goSearch() {
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	db.transaction(searchQueryDB, errorCB);
 }
 
 function goDelete() {
-	 var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	 var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	 db.transaction(deleteRow, errorCB);
 	 document.getElementById('qrpopup').style.display='none';
 }
@@ -158,7 +158,7 @@ function editRow(tx) {
 			+ currentRow, [], queryDB, errorCB);
 }
 function goEdit() {
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	db.transaction(editRow, errorCB);
 	document.getElementById('qrpopup').style.display='none';
 }
@@ -167,7 +167,7 @@ function goEdit() {
 
 function goRegistro() {
 	
-	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2});
+	var db = window.sqlitePlugin.openDatabase({name: db_name, androidDatabaseImplementation: 2, location: 'default'});
 	db.transaction(function(tx){
 		var firstName 	= $( "#firstName" ).val();
 	var lastName 	= $( "#lastName" ).val();
