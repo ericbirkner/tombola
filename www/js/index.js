@@ -116,14 +116,7 @@ function onDeviceReady() {
 	db.transaction(populateDB, errorCB, successCB);
 	db.transaction(creaTablaRegistros, errorCB);
 	
-	window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dir) {
-		console.log("got main dir",dir);
-		dir.getFile("registros.csv", {create:true}, function(file) {
-			console.log("got the file", file);
-			logOb = file;
-			writeLog("App started");			
-		});
-	});
+	
 }
 
 
@@ -192,7 +185,7 @@ function goRegistro() {
 	var sql = 'INSERT INTO registros (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("' +firstName+'","'+lastName+'","'+rut+'","'+email+'","'+birthday+'","'+recibe_info+'");';
 	//var sql = 'INSERT INTO registro (firstName, lastName,rut,email,birthday, recibe_info) VALUES ("eric","birkner","111111111","email@dalso.com","1212122222","si");';
 	console.log(sql);
-	writeLog(firstName+';'+lastName+';'+rut+';'+email+';'+birthday+';'+recibe_info);	
+	//writeLog(firstName+';'+lastName+';'+rut+';'+email+';'+birthday+';'+recibe_info);	
 	window.location= 'juego.html';
 	
 	tx.executeSql(sql);
@@ -202,19 +195,6 @@ function goRegistro() {
 }
 
 
-function writeLog(str) {
-	if(!logOb) return;
-	var log = str + " [" + (new Date()) + "]\n";
-	console.log("going to log "+log);
-	logOb.createWriter(function(fileWriter) {
-		
-		fileWriter.seek(fileWriter.length);
-		
-		var blob = new Blob([log], {type:'text/plain'});
-		fileWriter.write(blob);
-		console.log("ok, in theory i worked");
-	}, fail);
-}
 
 //funcion random array
 (function($) {
