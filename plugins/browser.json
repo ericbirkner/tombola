@@ -69,11 +69,10 @@
         },
         "cordova-sqlite-plugin": {
             "PACKAGE_NAME": "com.phonegap.tombola"
-        }
-    },
-    "dependent_plugins": {
+        },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
-    }
+    },
+    "dependent_plugins": {}
 }
