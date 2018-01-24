@@ -31,7 +31,7 @@ function lista_datos(tx, results) {
 		
 		var str = JSON.stringify(obj);
 		str = JSON.stringify(obj, null, 4); // (Optional) beautiful indented output.
-		$('body').append(str); // Displays output using window.alert()
+		//$('body').append(str); // Displays output using window.alert()
 	
 		
         	
@@ -63,7 +63,7 @@ function lista_datos(tx, results) {
 					mensaje = "Ha ocurrido un error, por favor vuelve a intentarlo";
 				}
 					console.log(mensaje);
-				
+					//alert(mensaje);
 			},
             error: function(errMsg) { 		
 	            if(errMsg.responseText=="{\"message\":\"hash invalid, the minimum length is 6\"}"){
@@ -74,6 +74,7 @@ function lista_datos(tx, results) {
 		            mensaje = "Ha ocurrido un error, por favor vuelve a intentarlo";
 	            }
 				console.log(mensaje);
+				//alert(mensaje);
 	            console.log(JSON.stringify(errMsg.responseText));
 				
             }
@@ -84,7 +85,8 @@ function lista_datos(tx, results) {
 	
 	//fin sync
 	$('.sync .loading').hide();
-	$('.sync').html('<p>Se sincronizaron <b>'+exito+'</b> registros al servidor</p>');
+	//$('.sync').html('<p>Se sincronizaron <b>'+exito+'</b> registros al servidor</p>');
+	$('.sync').html('<p>Se sincronizaron los registros con el servidor</p>');
 	
 }
 
