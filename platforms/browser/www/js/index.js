@@ -105,14 +105,14 @@ function errorCB(err) {
 // Transaction success callback
 //
 function successCB() {
-	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(queryDB, errorCB);
 }
 
  // Cordova is ready
 //
 function onDeviceReady() {
-	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(populateDB, errorCB, successCB);
 	db.transaction(creaTablaRegistros, errorCB);
 }
@@ -128,17 +128,17 @@ function insertDB(tx) {
 }
 
 function goInsert() {
-	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(insertDB, errorCB, successCB);
 }
 
 function goSearch() {
-	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(searchQueryDB, errorCB);
 }
 
 function goDelete() {
-	 var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	 var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	 db.transaction(deleteRow, errorCB);
 	 document.getElementById('qrpopup').style.display='none';
 }
@@ -158,7 +158,7 @@ function editRow(tx) {
 			+ currentRow, [], queryDB, errorCB);
 }
 function goEdit() {
-	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(editRow, errorCB);
 	document.getElementById('qrpopup').style.display='none';
 }
@@ -167,7 +167,7 @@ function goEdit() {
 
 function goRegistro() {
 	
-	var var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
+	var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 	db.transaction(function(tx){
 		var firstName 	= $( "#firstName" ).val();
 	var lastName 	= $( "#lastName" ).val();
