@@ -2,6 +2,7 @@
 var jockey =0;
 var parlante = 0;
 var audifono = 0;
+var finest = 0;
 
 
 
@@ -15,23 +16,8 @@ db.transaction(function(tx){
 	[], function(tx, results) {
 		console.log(results);
 		if(results.rows.length>0){
-			console.log('es mas de 0 -'+results.rows.item(0).number);
+			console.log('jockey :'+results.rows.item(0).number);
 			hola(results.rows.item(0).number);
-		}
-
-	});
-
-});
-
-db.transaction(function(tx){
-	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
-	console.log(sql);	
-	tx.executeSql(sql,
-	[], function(tx, results) {
-		console.log(results);
-		if(results.rows.length>0){
-			console.log('parlante :'+results.rows.item(0).number);
-			hola1(results.rows.item(0).number);
 		}
 
 	});
@@ -46,6 +32,21 @@ db.transaction(function(tx){
 		console.log(results);
 		if(results.rows.length>0){
 			console.log('audifono :'+results.rows.item(0).number);
+			hola1(results.rows.item(0).number);
+		}
+
+	});
+
+});
+
+db.transaction(function(tx){
+	var sql = "SELECT * FROM premios where name like ('%finest%') limit 1";	
+	console.log(sql);	
+	tx.executeSql(sql,
+	[], function(tx, results) {
+		console.log(results);
+		if(results.rows.length>0){
+			console.log('finest :'+results.rows.item(0).number);
 			hola2(results.rows.item(0).number);
 		}
 
@@ -59,13 +60,13 @@ function hola(number){
 }
 
 function hola1(number){
-	parlante = number;
-	console.log(parlante);
+	audifono = number;
+	console.log(audifono);
 }
 
 function hola2(number){
-	audifono = number;
-	console.log(audifono);
+	finest = number;
+	console.log(finest);
 }
 
 
@@ -145,26 +146,26 @@ $(function(){
 					nombre_premios[4]="jockey";
 				}
 				
-				if(parlante>0){
-					console.log('hay parlante');
+				if(audifono>0){
+					console.log('hay audifonos');
 					premios[2]=135;
 					premios[6]=315;
-					nombre_premios[2]="parlante";
-					nombre_premios[6]="parlante";
+					nombre_premios[2]="audifono";
+					nombre_premios[6]="audifono";
 				}
 				
-				if(audifono>0){
-					console.log('hay audifono');
+				if(finest>0){
+					console.log('hay finest');
 					premios[3]=180;
 					premios[7]=360;
-					nombre_premios[3]="audífonos";
-					nombre_premios[7]="audífonos";
+					nombre_premios[3]="finest";
+					nombre_premios[7]="finest";
 				}
 				
 				console.log(nombre_premios);
 				
 				var random = Math.floor(Math.random()*premios.length);
-				var premiado = premios[random]
+				var premiado = premios[random];
 				
 				console.log('premiado:'+ premiado);
 				
@@ -219,8 +220,8 @@ $(function(){
 					console.log('win = ' + win);
 					console.log('premio = ' + premio);
 					
-					if(premio!='sigue disfrutando'){
-						if(premio == 'audífonos'){
+					if(premio!=='sigue disfrutando'){
+						if(premio === 'audífonos'){
 							descontar('audifonos');
 						}else{
 							descontar(premio);	
@@ -229,7 +230,7 @@ $(function(){
 										
 					//alert(premio);
 					$('#juego .tu_premio .box_premio').text(premio);
-					$('#juego .tu_premio').css({'display':'block'})
+					$('#juego .tu_premio').css({'display':'block'});
 					
 					//$('input[name=premio]').val(premio);
                    
