@@ -117,6 +117,7 @@ function onDeviceReady() {
 	db.transaction(creaTablaRegistros, errorCB);
 	console.log(cordova.file);
 	
+	/*
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
 		//alert(fs.root.name);
 		console.log('file system open: ' + fs.name);
@@ -130,6 +131,7 @@ function onDeviceReady() {
 		});
 
 	});
+	*/
 	
 }
 
