@@ -28,14 +28,14 @@ function populateDB(tx) {
 	});
 
 
-	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
+	var sql = "SELECT * FROM premios where name like ('%finest%') limit 1";	
 	console.log(sql);	
 	tx.executeSql(sql,
 	[], function(tx, results) {
 		console.log(results);
 		if(results.rows.length==0){
 			console.log('parlante');
-			tx.executeSql('INSERT INTO premios (name,number) VALUES ("parlantes", "0")');
+			tx.executeSql('INSERT INTO premios (name,number) VALUES ("finest", "0")');
 		}
 
 	});
@@ -246,18 +246,7 @@ function goRegistro() {
 	tx.executeSql(sql);
 	
 		
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-
-		console.log('file system open: ' + fs.name);
-		fs.root.getFile("registros.txt", { create: true, exclusive: true }, function (fileEntry) {
-
-			console.log("fileEntry is file?" + fileEntry.isFile.toString());
-			var obj = firstName+';'+lastName+';'+rut+';'+email+';'+birthday+';'+recibe_info+'\n';
-			writeFile(fileEntry, obj, true);
-
-		});	
-
-	});	
+	
 	window.location= 'juego.html';
 	
 	
