@@ -1,5 +1,5 @@
 // JavaScript Document
-var jockey =0;
+var parlante =0;
 var parlante = 0;
 var audifono = 0;
 var finest = 0;
@@ -10,13 +10,13 @@ var finest = 0;
 var db = window.openDatabase(db_name, "1.0", "Birkner Media", 200000);
 
 db.transaction(function(tx){
-	var sql = "SELECT * FROM premios where name like ('%jockey%') limit 1";	
+	var sql = "SELECT * FROM premios where name like ('%parlante%') limit 1";	
 	console.log(sql);	
 	tx.executeSql(sql,
 	[], function(tx, results) {
 		console.log(results);
 		if(results.rows.length>0){
-			console.log('jockey :'+results.rows.item(0).number);
+			console.log('parlante :'+results.rows.item(0).number);
 			hola(results.rows.item(0).number);
 		}
 
@@ -55,8 +55,8 @@ db.transaction(function(tx){
 });
 		
 function hola(number){
-	jockey = number;
-	console.log(jockey);
+	parlante = number;
+	console.log(parlante);
 }
 
 function hola1(number){
@@ -134,16 +134,16 @@ $(function(){
                 //duration = 6000; //optimal 6 secs
 				
 				//var premios = Array(45,90,135,180,225,270,315,360);
-				//var nombre_premios = Array('jockey','sigue disfrutando','parlante','audifonos','jockey','sigue disfrutando','parlante','audifonos');
+				//var nombre_premios = Array('parlante','sigue disfrutando','parlante','audifonos','parlante','sigue disfrutando','parlante','audifonos');
 				var premios = Array(90,90,90,90,90,90,90,90);
 				var nombre_premios = Array('sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando','sigue disfrutando');
 				
-				if(jockey>0){
-					console.log('hay jockey');
+				if(parlante>0){
+					console.log('hay parlante');
 					premios[0]=45;
 					premios[4]=225;
-					nombre_premios[0]="jockey";
-					nombre_premios[4]="jockey";
+					nombre_premios[0]="parlante";
+					nombre_premios[4]="parlante";
 				}
 				
 				if(audifono>0){
